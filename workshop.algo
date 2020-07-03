@@ -1,0 +1,43 @@
+ALGORITHM checkpoint
+VAR i,numOfCharacters,wordCount,vowelCount : integer;
+VAR sentence: CHAR;
+BEGIN
+
+write("give a sentence that ends with a point");
+read(sentence);
+
+numOfCharacters:=0;
+i:=0;
+REPEAT{
+        i:=i+1;
+        numOfCharacters:= numOfCharacters + 1;
+}UNTIL (sentence[i] ="" || sentence[i]="."]);
+print("the number of letters are:",numOfCharacters);
+
+//iterate through the string and count the spaces present in the string
+wordCount:=0;
+FOR (int i=0;i<numOfCharacters;i++) THEN
+    IF(sentence[i]="" && sentence[i+1]!="") THEN
+        wordCount:= wordCount+1;
+    END IF
+END FOR
+
+//To count the last word present in the string I added 1 wordCount
+    wordCount:= wordCount+1;
+
+print("the number of words is:",wordCount);
+
+// there are 5 lowcase vowels so I checked all the lowcases and capital ones
+// if the character matches one of them then he is a vowel and the number adds 1
+
+vowelCount:=0;
+FOR(i=0;i<numOfCharacters;i++) THEN
+IF(sentence[i]="a" || sentence[i]="e" || sentence[i]="i" || sentence[i]="u" || sentence[i]="o" || sentence[i]="A" || sentence[i]="E" || sentence[i]="I" || sentence[i]="U" || sentence[i]="O") THEN 
+    vowelCount:= vowelCount+1;
+END IF
+END FOR
+//at the end of the program it will display the number of vowels
+
+print("the number of vowels is:",vowelCount);
+
+END
